@@ -10,12 +10,14 @@ import {
 	Button,
 	Container,
 	Input,
+	InputError,
 	InputGroup,
 } from "./styles";
 
 const Login = () => {
 	const [validUser, setValidUser] = useState(false);
 	const [user, setUser] = useState<Record<string, any>>({});
+	const [errorMsg, setErrorMsg] = useState("");
 	const { setState } = useContext(UserContext);
 
 	const history = useHistory();
@@ -31,9 +33,15 @@ const Login = () => {
 				setValidUser(!!data && data.login && Object.keys(data).length > 0);
 			} catch (err) {
 				console.error(err);
+				setErrorMsg("User not found");
 				setValidUser(false);
 			}
 		} else {
+			setErrorMsg("Empty input");
+
+			setTimeout(() => {
+				setErrorMsg("");
+			}, 2000);
 			setValidUser(false);
 		}
 	};
@@ -44,6 +52,8 @@ const Login = () => {
 				github: user.login,
 				gitData: user,
 			});
+
+			localStorage.setItem("github", JSON.stringify(user));
 
 			history.push("/");
 		}
@@ -65,6 +75,7 @@ const Login = () => {
 						name="user"
 						onChange={debounceChangeHandler}
 					/>
+					{!validUser && <InputError>{errorMsg}</InputError>}
 				</InputGroup>
 				{validUser && <Button onClick={handleOnClick}>Login</Button>}
 			</Box>

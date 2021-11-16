@@ -19,7 +19,7 @@ export const Box = styled.div`
 	align-items: center;
 
 	width: 60vw;
-    max-width: 428px;
+	max-width: 428px;
 
 	padding: 12px 24px;
 	border-radius: 12px;
@@ -80,4 +80,12 @@ export const Button = styled.button`
 	&:hover {
 		opacity: 0.84;
 	}
+`;
+
+export const InputError = styled.span`
+	color: #ff5722;
+	font-size: 0.8rem;
+	font-weight: 500;
+
+	transition: all 0.3s ease-in-out;
 `;

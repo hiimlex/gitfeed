@@ -1,18 +1,23 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Redirect, Route, RouteProps } from "react-router-dom";
 import UserContext from "../user-context";
 import { isEmptyObject } from "../utils/isEmptyObject";
 
 const GuardedRoute: React.FC<RouteProps> = ({ children, path }) => {
-	const { state } = useContext(UserContext);
+	const { state, setState } = useContext(UserContext);
 
 	const user = JSON.parse(localStorage.getItem("github") || "{}");
 
+	useEffect(() => {
+		setState({ gitData: user, github: user.login });
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return (
 		<Route path={path}>
-			{isEmptyObject(user) ||
+			{!isEmptyObject(user) ||
 			state.github !== "" ||
-			isEmptyObject(state.gitData) ? (
+			!isEmptyObject(state.gitData) ? (
 				children
 			) : (
 				<Redirect to="/login" />

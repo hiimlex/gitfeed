@@ -1,7 +1,7 @@
-import axios from "axios";
 import { debounce } from "lodash";
-import { useState, useContext, useCallback } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { getGitUser } from "../../api/services/git";
 import UserContext from "../../user-context";
 import {
 	Box,
@@ -19,16 +19,6 @@ const Login = () => {
 	const { setState } = useContext(UserContext);
 
 	const history = useHistory();
-
-	async function getGitUser(value: string) {
-		try {
-			const response = await axios.get(`https://api.github.com/users/${value}`);
-
-			return response;
-		} catch (err) {
-			throw new Error("User not found");
-		}
-	}
 
 	const handleOnChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.target;

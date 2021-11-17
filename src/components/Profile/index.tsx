@@ -15,7 +15,11 @@ import {
 	Bio,
 	AddictionalInfo,
 	Row,
+	Logout,
 } from "./styles";
+
+import { FiPower } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
 
 interface ProfileProps {
 	gitData: any;
@@ -23,6 +27,12 @@ interface ProfileProps {
 
 const Profile = (props: ProfileProps) => {
 	const { gitData } = props;
+	const history = useHistory();
+
+	const handleLogout = () => {
+		localStorage.removeItem("github");
+		history.push("/login");
+	};
 
 	return (
 		<ProfileInfo>
@@ -35,11 +45,11 @@ const Profile = (props: ProfileProps) => {
 				<Row>
 					<span>
 						<HiOutlineOfficeBuilding style={{ marginRight: 4 }} size={15} />
-						{gitData.company}
+						{gitData.company || "No Company"}
 					</span>
 					<span>
 						<HiOutlineUserCircle style={{ marginRight: 4 }} size={15} />
-						{gitData.followers}
+						{gitData.followers || "0"}
 					</span>
 				</Row>
 				<Row>
@@ -49,20 +59,24 @@ const Profile = (props: ProfileProps) => {
 					</span>
 					<span>
 						<RiGitRepositoryLine style={{ marginRight: 4 }} size={15} />
-						{gitData.public_repos}
+						{gitData.public_repos || "No Repos"}
 					</span>
 				</Row>
 				<Row>
 					<span>
 						<HiOutlineLocationMarker style={{ marginRight: 4 }} size={15} />
-						{gitData.location}
+						{gitData.location || "No Location"}
 					</span>
 					<span>
 						<BsTwitter style={{ marginRight: 4 }} size={15} />
-						{gitData.twitter_username}
+						{gitData.twitter_username || "No Twitter"}
 					</span>
 				</Row>
 			</AddictionalInfo>
+			<Divider />
+			<Logout onClick={handleLogout}>
+				<FiPower size={22} />
+			</Logout>
 		</ProfileInfo>
 	);
 };

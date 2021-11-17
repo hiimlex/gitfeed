@@ -1,7 +1,8 @@
 import { debounce } from "lodash";
 import { useCallback, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { getGitUser } from "../../api/services/git";
+import { GitUserData } from "../../api/models/gitModel";
+import { getAllUsers, getGitUser, postGitUser } from "../../api/services/api";
 import UserContext from "../../context/user-context";
 import {
 	Box,
@@ -16,7 +17,7 @@ import {
 
 const Login = () => {
 	const [validUser, setValidUser] = useState(false);
-	const [user, setUser] = useState<Record<string, any>>({});
+	const [user, setUser] = useState<GitUserData>({} as GitUserData);
 	const [errorMsg, setErrorMsg] = useState("");
 	const { setState } = useContext(UserContext);
 
@@ -42,12 +43,19 @@ const Login = () => {
 			setTimeout(() => {
 				setErrorMsg("");
 			}, 2000);
+
 			setValidUser(false);
 		}
 	};
 
-	const handleOnClick = () => {
+	const handleOnClick = async () => {
 		if (validUser) {
+			const { data } = await getAllUsers();
+
+			if (!data.find((el) => el.gitID === user.id)) {
+				await postGitUser({ gitID: user.id, username: user.login });
+			}
+
 			setState({
 				github: user.login,
 				gitData: user,

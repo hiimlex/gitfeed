@@ -20,12 +20,12 @@ const PostList = (props: PostListProps) => {
 		{
 			username: "hiimlex",
 			avatar: gitData.avatar_url,
-			content: gitData.bio + " asdasdasdasdasdasdas asda asd aca asdas da asdsad asdasd asasdas dasdasd asd asdasdas dasdas " ,
+			content:
+				gitData.bio +
+				" asdasdasdasdasdasdas asda asd aca asdas da asdsad asdasd asasdas dasdasd asd asdasdas dasdas ",
 			favs: gitData.followers,
 		},
 	];
-
-	console.log(staticPost);
 
 	return (
 		<Container>

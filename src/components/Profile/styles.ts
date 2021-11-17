@@ -65,3 +65,25 @@ export const Row = styled.div`
 	margin: 4px 0;
 	justify-content: space-between;
 `;
+
+export const Logout = styled.div`
+	width: 42px;
+	height: 42px;
+	margin: 12px 0;
+	padding: 4px;
+
+	border-radius: 8px;
+	border: 1px solid #585757;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		background: #585757;
+		color: #fff;
+	}
+`;

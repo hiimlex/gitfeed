@@ -9,8 +9,6 @@ const LandingPage = () => {
 	const { state } = useContext(UserContext);
 	const { gitData } = state;
 
-	console.log(gitData);
-
 	return (
 		<Container>
 			<Content>

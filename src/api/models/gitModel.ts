@@ -32,3 +32,8 @@ export interface GitUserData {
 	updated_at: string;
 	url: string;
 }
+
+export interface PostGitUser {
+	username: string;
+	gitID: number;
+}

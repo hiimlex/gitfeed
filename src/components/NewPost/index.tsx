@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { newPost } from "../../api/services/api";
 import { Divider } from "../../pages/LandingPage/styles";
 import { Button, Column, NewPostAvatar, Post, TextArea } from "./styles";
 
@@ -8,14 +9,22 @@ interface NewPostProps {
 
 const NewPost = (props: NewPostProps) => {
 	const { gitData } = props;
+
+	const [hasContent, setHasContent] = useState(true);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-	const handleSubmit = (e: any) => {
+	const handleSubmit = async (e: any) => {
 		e.preventDefault();
 
 		if (textareaRef.current) {
-			console.log(textareaRef.current.value);
+			const { value } = textareaRef.current;
 		}
+	};
+
+	const handleOnChange = (e: any) => {
+		const { value } = e.target;
+
+		setHasContent(value.length > 0);
 	};
 
 	return (
@@ -27,10 +36,13 @@ const NewPost = (props: NewPostProps) => {
 					contentEditable
 					suppressContentEditableWarning={true}
 					role="textbox"
+					onChange={handleOnChange}
 					defaultValue="What's up?"
 				></TextArea>
 				<Divider></Divider>
-				<Button onClick={handleSubmit}>Send</Button>
+				<Button onClick={handleSubmit} disabled={!hasContent}>
+					Send
+				</Button>
 			</Column>
 		</Post>
 	);

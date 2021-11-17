@@ -47,4 +47,18 @@ async function getAllPosts(): Promise<AxiosResponse<GetPostData[]>> {
 		throw new Error("User not found");
 	}
 }
-export { getGitUser, postNewUser, getAllUsers, getAllPosts };
+
+async function newPost(post: GetPostData): Promise<AxiosResponse<any>> {
+	try {
+		const response = await axios.post(
+			`https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/posts`,
+			post
+		);
+
+		return response;
+	} catch (err) {
+		throw new Error("Oh Oh Something is wrong");
+	}
+}
+
+export { getGitUser, postNewUser, getAllUsers, getAllPosts, newPost };

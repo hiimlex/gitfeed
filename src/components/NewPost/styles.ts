@@ -53,7 +53,11 @@ export const TextArea = styled.textarea`
 	}
 `;
 
-export const Button = styled.button`
+interface ButtonProps {
+	disabled?: boolean;
+}
+
+export const Button = styled.button<ButtonProps>`
 	width: 128px;
 	height: auto;
 	padding: 6px 4px;
@@ -77,4 +81,18 @@ export const Button = styled.button`
 		background: #ff5722;
 		border-color: #ff5722;
 	}
+
+	${(props) =>
+		props.disabled &&
+		`
+		background: #585757;
+		border-color: #585757;
+		cursor: not-allowed;
+		color: #383838;
+
+		&:hover {
+			background: #585757;
+			border-color: #585757;
+		}
+	`}
 `;

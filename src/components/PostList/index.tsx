@@ -3,7 +3,7 @@ import { GetPostData } from "../../api/models/gitModel";
 import { getAllPosts } from "../../api/services/api";
 import { randomId } from "../../utils/random-id";
 import Post from "../Post";
-import { Container } from "./styles";
+import { Container, NotFound, NotFoundText } from "./styles";
 
 export interface PostData {
 	username: string;
@@ -26,7 +26,7 @@ const PostList = () => {
 
 	return (
 		<Container>
-			{posts.length &&
+			{posts.length ? (
 				posts.map((el) => (
 					<Post
 						key={randomId()}
@@ -37,7 +37,12 @@ const PostList = () => {
 							favs: el.favorites,
 						}}
 					/>
-				))}
+				))
+			) : (
+				<NotFound>
+					<NotFoundText>There's no posts yet :C</NotFoundText>
+				</NotFound>
+			)}
 		</Container>
 	);
 };

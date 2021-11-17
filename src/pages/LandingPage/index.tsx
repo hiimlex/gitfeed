@@ -1,19 +1,8 @@
 import React, { useContext, useEffect } from "react";
+import NewPost from "../../components/NewPost";
 import Profile from "../../components/Profile";
 import UserContext from "../../context/user-context";
-import {
-	Button,
-	Column,
-	Container,
-	Content,
-	Divider,
-	Feed,
-	NewPost,
-	NewPostAvatar,
-	TextArea,
-	Title,
-	TitleBox,
-} from "./styles";
+import { Container, Content, Feed, Title, TitleBox } from "./styles";
 
 const LandingPage = () => {
 	const { state } = useContext(UserContext);
@@ -31,7 +20,7 @@ const LandingPage = () => {
 					<TitleBox>
 						<Title>Feed</Title>
 					</TitleBox>
-
+					<NewPost gitData={gitData} />
 				</Feed>
 			</Content>
 		</Container>

@@ -36,12 +36,10 @@ async function getAllUsers(): Promise<AxiosResponse<GitUserApi[]>> {
 	}
 }
 
-async function getAllPosts(
-	userId: number
-): Promise<AxiosResponse<GetPostData[]>> {
+async function getAllPosts(): Promise<AxiosResponse<GetPostData[]>> {
 	try {
 		const response = await axios.get(
-			`https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/user/${userId}/post`
+			`https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/posts`
 		);
 
 		return response;

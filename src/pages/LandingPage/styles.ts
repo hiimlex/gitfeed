@@ -14,8 +14,9 @@ export const Container = styled.div`
 
 export const Content = styled.div`
 	max-width: 1080px;
-	height: 100%;
-
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -27,10 +28,12 @@ export const Feed = styled.div`
 	height: 100vh;
 	min-width: 620px;
 	max-width: 838px;
+	overflow: auto;
 
 	background: #434346;
 	border: 1px solid #585757;
 	border-left: none;
+	position: relative;
 `;
 
 export const Divider = styled.hr`
@@ -44,6 +47,9 @@ export const Divider = styled.hr`
 export const TitleBox = styled.div`
 	padding: 12px;
 	border-bottom: 1px solid #585757;
+	position: sticky;
+	top: 0;
+	background: #434346;
 `;
 
 export const Title = styled.span`

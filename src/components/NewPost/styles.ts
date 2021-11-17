@@ -51,16 +51,6 @@ export const TextArea = styled.textarea`
 		width: 100%;
 		max-width: 100%c;
 	}
-
-	::-webkit-scrollbar {
-		width: 5px;
-		height: 8px;
-		background-color: #aaa;
-	}
-
-	::-webkit-scrollbar-thumb {
-		background: #000;
-	}
 `;
 
 export const Button = styled.button`
@@ -84,6 +74,7 @@ export const Button = styled.button`
 	transition: all 0.2s ease-in-out;
 
 	&:hover {
-		background: #585757;
+		background: #ff5722;
+		border-color: #ff5722;
 	}
 `;

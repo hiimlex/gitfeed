@@ -1,10 +1,9 @@
+import { useEffect, useState } from "react";
+import { GetPostData } from "../../api/models/gitModel";
+import { getAllPosts } from "../../api/services/api";
 import { randomId } from "../../utils/random-id";
 import Post from "../Post";
 import { Container } from "./styles";
-
-interface PostListProps {
-	gitData: any;
-}
 
 export interface PostData {
 	username: string;
@@ -13,24 +12,32 @@ export interface PostData {
 	favs: number;
 }
 
-const PostList = (props: PostListProps) => {
-	const { gitData } = props;
+const PostList = () => {
+	const [posts, setPosts] = useState<GetPostData[]>([]);
 
-	const staticPost: PostData[] = [
-		{
-			username: "hiimlex",
-			avatar: gitData.avatar_url,
-			content:
-				gitData.bio +
-				" asdasdasdasdasdasdas asda asd aca asdas da asdsad asdasd asasdas dasdasd asd asdasdas dasdas ",
-			favs: gitData.followers,
-		},
-	];
+	const getPostData = async () => {
+		const { data } = await getAllPosts();
+		setPosts(data);
+	};
+
+	useEffect(() => {
+		getPostData();
+	}, []);
 
 	return (
 		<Container>
-			{staticPost.length &&
-				staticPost.map((el) => <Post key={randomId()} postData={el} />)}
+			{posts.length &&
+				posts.map((el) => (
+					<Post
+						key={randomId()}
+						postData={{
+							username: el.username,
+							avatar: el.avatar,
+							content: el.content,
+							favs: el.favorites,
+						}}
+					/>
+				))}
 		</Container>
 	);
 };

@@ -43,7 +43,7 @@ export interface GetPostData {
 	username: string;
 	content: string;
 	avatar: string;
-	favorite: number;
+	favorites: number;
 	id: string;
 	userId: string;
 }

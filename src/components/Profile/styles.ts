@@ -83,7 +83,7 @@ export const Logout = styled.div`
 	transition: all 0.2s ease-in-out;
 
 	&:hover {
-		background: #585757;
+		background: #ff5722;
 		color: #fff;
 	}
 `;

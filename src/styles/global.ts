@@ -6,6 +6,17 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		box-sizing: border-box;	
 		outline: 0;
+		
+
+		::-webkit-scrollbar {
+			width: 4px;
+			height: 8px;
+			background-color: #404044;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: #ff5722;
+		}
 	}
 
 	body {

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Redirect, Route, RouteProps } from "react-router-dom";
-import UserContext from "../user-context";
+import UserContext from "../context/user-context";
 import { isEmptyObject } from "../utils/isEmptyObject";
 
 const GuardedRoute: React.FC<RouteProps> = ({ children, path }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalContext from "./global-context";
+import GlobalContext from "./context/global-context";
 import Routes from "./router";
 import { GlobalStyle } from "./styles/global";
 

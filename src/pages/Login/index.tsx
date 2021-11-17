@@ -2,7 +2,7 @@ import { debounce } from "lodash";
 import { useCallback, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getGitUser } from "../../api/services/git";
-import UserContext from "../../user-context";
+import UserContext from "../../context/user-context";
 import {
 	Box,
 	BoxSubtitle,

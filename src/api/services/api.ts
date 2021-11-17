@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { GitUserData, PostGitUser } from "../models/gitModel";
+import { GetPostData, GitUserApi, GitUserData } from "../models/gitModel";
 
 async function getGitUser(value: string): Promise<AxiosResponse<GitUserData>> {
 	try {
@@ -11,7 +11,7 @@ async function getGitUser(value: string): Promise<AxiosResponse<GitUserData>> {
 	}
 }
 
-async function postGitUser(user: PostGitUser): Promise<AxiosResponse<any>> {
+async function postNewUser(user: GitUserApi): Promise<AxiosResponse<any>> {
 	try {
 		const response = await axios.post(
 			"https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/user",
@@ -24,7 +24,7 @@ async function postGitUser(user: PostGitUser): Promise<AxiosResponse<any>> {
 	}
 }
 
-async function getAllUsers(): Promise<AxiosResponse<PostGitUser[]>> {
+async function getAllUsers(): Promise<AxiosResponse<GitUserApi[]>> {
 	try {
 		const response = await axios.get(
 			"https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/user/"
@@ -36,4 +36,17 @@ async function getAllUsers(): Promise<AxiosResponse<PostGitUser[]>> {
 	}
 }
 
-export { getGitUser, postGitUser, getAllUsers };
+async function getAllPosts(
+	userId: number
+): Promise<AxiosResponse<GetPostData[]>> {
+	try {
+		const response = await axios.get(
+			`https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/user/${userId}/post`
+		);
+
+		return response;
+	} catch (err) {
+		throw new Error("User not found");
+	}
+}
+export { getGitUser, postNewUser, getAllUsers, getAllPosts };

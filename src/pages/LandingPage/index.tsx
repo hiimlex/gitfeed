@@ -5,6 +5,8 @@ import Profile from "../../components/Profile";
 import UserContext from "../../context/user-context";
 import { Container, Content, Feed, Title, TitleBox } from "./styles";
 
+import { BsGithub } from "react-icons/bs";
+
 const LandingPage = () => {
 	const { state } = useContext(UserContext);
 	const { gitData } = state;
@@ -15,7 +17,9 @@ const LandingPage = () => {
 				<Profile gitData={gitData} />
 				<Feed>
 					<TitleBox>
-						<Title>Feed</Title>
+						<Title>
+							<BsGithub size={28} /> Feed
+						</Title>
 					</TitleBox>
 					<NewPost gitData={gitData} />
 					<PostList gitData={gitData}></PostList>

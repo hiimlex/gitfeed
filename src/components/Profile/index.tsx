@@ -1,25 +1,24 @@
 import { BsTwitter } from "react-icons/bs";
+import { FiPower } from "react-icons/fi";
 import {
+	HiOutlineLocationMarker,
+	HiOutlineMail,
 	HiOutlineOfficeBuilding,
 	HiOutlineUserCircle,
-	HiOutlineMail,
-	HiOutlineLocationMarker,
 } from "react-icons/hi";
 import { RiGitRepositoryLine } from "react-icons/ri";
+import { useHistory } from "react-router-dom";
 import { Divider } from "../../pages/LandingPage/styles";
 import {
-	ProfileInfo,
-	Avatar,
-	Username,
-	Name,
-	Bio,
 	AddictionalInfo,
-	Row,
+	Avatar,
+	Bio,
 	Logout,
+	Name,
+	ProfileInfo,
+	Row,
+	Username,
 } from "./styles";
-
-import { FiPower } from "react-icons/fi";
-import { useHistory } from "react-router-dom";
 
 interface ProfileProps {
 	gitData: any;

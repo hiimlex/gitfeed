@@ -2,7 +2,7 @@ import { debounce } from "lodash";
 import { useCallback, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GitUserData } from "../../api/models/gitModel";
-import { getAllUsers, getGitUser, postGitUser } from "../../api/services/api";
+import { getAllUsers, getGitUser, postNewUser } from "../../api/services/api";
 import UserContext from "../../context/user-context";
 import {
 	Box,
@@ -53,7 +53,7 @@ const Login = () => {
 			const { data } = await getAllUsers();
 
 			if (!data.find((el) => el.gitID === user.id)) {
-				await postGitUser({ gitID: user.id, username: user.login });
+				await postNewUser({ gitID: user.id, username: user.login });
 			}
 
 			setState({

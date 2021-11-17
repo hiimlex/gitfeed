@@ -66,17 +66,17 @@ export const Input = styled.input`
 export const Button = styled.button`
 	width: 100%;
 	padding: 8px 12px;
-	
+
 	border-radius: 4px;
 	background: #ff5722;
 	border: 0;
 	outline: 0;
-	
+
 	color: #fff;
 	font-size: 0.9rem;
 	text-transform: uppercase;
 	font-weight: 700;
-	
+
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
 

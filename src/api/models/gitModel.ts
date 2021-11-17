@@ -33,7 +33,17 @@ export interface GitUserData {
 	url: string;
 }
 
-export interface PostGitUser {
+export interface GitUserApi {
 	username: string;
 	gitID: number;
+}
+
+export interface GetPostData {
+	createdAt: Date;
+	username: string;
+	content: string;
+	avatar: string;
+	favorite: number;
+	id: string;
+	userId: string;
 }

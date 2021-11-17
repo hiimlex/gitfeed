@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import NewPost from "../../components/NewPost";
+import PostList from "../../components/PostList";
 import Profile from "../../components/Profile";
 import UserContext from "../../context/user-context";
 import { Container, Content, Feed, Title, TitleBox } from "./styles";
@@ -8,9 +9,7 @@ const LandingPage = () => {
 	const { state } = useContext(UserContext);
 	const { gitData } = state;
 
-	useEffect(() => {
-		console.log(gitData);
-	});
+	console.log(gitData);
 
 	return (
 		<Container>
@@ -21,6 +20,7 @@ const LandingPage = () => {
 						<Title>Feed</Title>
 					</TitleBox>
 					<NewPost gitData={gitData} />
+					<PostList gitData={gitData}></PostList>
 				</Feed>
 			</Content>
 		</Container>

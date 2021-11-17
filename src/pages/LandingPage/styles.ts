@@ -13,7 +13,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-	width: 100%;
 	max-width: 1080px;
 	height: 100%;
 
@@ -25,9 +24,10 @@ export const Content = styled.div`
 
 export const Feed = styled.div`
 	width: 38vw;
+	height: 100vh;
 	min-width: 620px;
 	max-width: 838px;
-	height: 100vh;
+
 	background: #434346;
 	border: 1px solid #585757;
 	border-left: none;
@@ -43,11 +43,11 @@ export const Divider = styled.hr`
 
 export const TitleBox = styled.div`
 	padding: 12px;
-	border: 1px solid #585757;
+	border-bottom: 1px solid #585757;
 `;
 
 export const Title = styled.span`
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	margin-left: 12px;
 	font-weight: 700;
 `;

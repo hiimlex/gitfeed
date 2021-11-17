@@ -20,9 +20,9 @@ export const Box = styled.div`
 
 	width: 60vw;
 	max-width: 428px;
-
 	padding: 12px 24px;
 	border-radius: 12px;
+
 	background: #434346;
 	box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.05);
 `;
@@ -66,14 +66,17 @@ export const Input = styled.input`
 export const Button = styled.button`
 	width: 100%;
 	padding: 8px 12px;
+	
 	border-radius: 4px;
 	background: #ff5722;
+	border: 0;
+	outline: 0;
+	
 	color: #fff;
 	font-size: 0.9rem;
 	text-transform: uppercase;
 	font-weight: 700;
-	outline: 0;
-	border: 0;
+	
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
 

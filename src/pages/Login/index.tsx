@@ -30,7 +30,7 @@ const Login = () => {
 				const { data } = await getGitUser(value);
 
 				setUser(data);
-				setValidUser(!!data && data.login && Object.keys(data).length > 0);
+				setValidUser(!!data && Object.keys(data).length > 0);
 			} catch (err) {
 				console.error(err);
 				setErrorMsg("User not found");

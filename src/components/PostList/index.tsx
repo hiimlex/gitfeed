@@ -1,4 +1,4 @@
-import { GetPostData } from "../../api/models/gitModel";
+import { GetPostData } from "../../api/models/postModel";
 import { randomId } from "../../utils/random-id";
 import Post from "../Post";
 import { Container, NotFound, NotFoundText } from "./styles";

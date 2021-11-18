@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsGithub } from "react-icons/bs";
-import { GetPostData } from "../../api/models/gitModel";
-import { getAllPosts } from "../../api/services/api";
+import { GetPostData } from "../../api/models/postModel";
+import { getAllPosts } from "../../api/services/post";
 import NewPost from "../../components/NewPost";
 import PostList from "../../components/PostList";
 import Profile from "../../components/Profile";

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { newPost } from "../../api/services/api";
+import { newPost } from "../../api/services/post";
 import { Divider } from "../../pages/LandingPage/styles";
 import { Button, Column, NewPostAvatar, Post, TextArea } from "./styles";
 

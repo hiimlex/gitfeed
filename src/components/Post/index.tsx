@@ -19,8 +19,8 @@ import {
 	PostUsername,
 	Row,
 } from "./styles";
-import { deletePost, updatePost } from "../../api/services/api";
-import { GetPostData } from "../../api/models/gitModel";
+import { deletePost, updatePost } from "../../api/services/post";
+import { GetPostData } from "../../api/models/postModel";
 import { debounce } from "lodash";
 
 interface PostProps {

@@ -6,13 +6,19 @@ import NewPost from "../../components/NewPost";
 import PostList from "../../components/PostList";
 import Profile from "../../components/Profile";
 import UserContext from "../../context/user-context";
-import { Container, Content, Feed, Title, TitleBox } from "./styles";
+import {
+	LandingContainer,
+	LandingContent,
+	LandingFeed,
+	LandingTitle,
+	LandingTitleBox,
+} from "./styles";
 
 const LandingPage = () => {
+	const [posts, setPosts] = useState<GetPostData[]>([]);
+
 	const { state } = useContext(UserContext);
 	const { gitData } = state;
-
-	const [posts, setPosts] = useState<GetPostData[]>([]);
 
 	const getPostData = async () => {
 		try {
@@ -35,20 +41,20 @@ const LandingPage = () => {
 	}, []);
 
 	return (
-		<Container>
-			<Content>
+		<LandingContainer>
+			<LandingContent>
 				<Profile gitData={gitData} />
-				<Feed>
-					<TitleBox>
-						<Title>
+				<LandingFeed>
+					<LandingTitleBox>
+						<LandingTitle>
 							<BsGithub size={28} /> Feed
-						</Title>
-					</TitleBox>
+						</LandingTitle>
+					</LandingTitleBox>
 					<NewPost gitData={gitData} reloadData={reloadPosts} />
 					<PostList posts={posts} reloadData={reloadPosts} />
-				</Feed>
-			</Content>
-		</Container>
+				</LandingFeed>
+			</LandingContent>
+		</LandingContainer>
 	);
 };
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const LoginContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 	color: #fff;
 `;
 
-export const Box = styled.div`
+export const LoginBox = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -27,18 +27,18 @@ export const Box = styled.div`
 	box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.05);
 `;
 
-export const BoxTitle = styled.h1`
+export const LoginBoxTitle = styled.h1`
 	font-size: 1.8rem;
 	line-height: 3rem;
 `;
 
-export const BoxSubtitle = styled.h3`
+export const LoginBoxSubtitle = styled.h3`
 	font-size: 0.9rem;
 	line-height: 1.8rem;
 	font-weight: 500;
 `;
 
-export const InputGroup = styled.div`
+export const LoginInputGroup = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -54,7 +54,7 @@ export const InputGroup = styled.div`
 	}
 `;
 
-export const Input = styled.input`
+export const LoginInput = styled.input`
 	outline: 0;
 	border: 1px solid #fff;
 	background: transparent;
@@ -63,7 +63,7 @@ export const Input = styled.input`
 	color: #fff;
 `;
 
-export const Button = styled.button`
+export const LoginButton = styled.button`
 	width: 100%;
 	padding: 8px 12px;
 
@@ -85,7 +85,7 @@ export const Button = styled.button`
 	}
 `;
 
-export const InputError = styled.span`
+export const LoginInputError = styled.span`
 	color: #ff5722;
 	font-size: 0.8rem;
 	font-weight: 500;

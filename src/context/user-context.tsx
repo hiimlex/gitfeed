@@ -4,10 +4,11 @@ import React, {
 	SetStateAction,
 	useState,
 } from "react";
+import { GitUserData } from "../api/models/gitModel";
 
 interface UserType {
 	github: string;
-	gitData: Record<any, any>;
+	gitData: GitUserData;
 }
 
 interface PropsUserContext {
@@ -18,7 +19,7 @@ interface PropsUserContext {
 const DEFAULT_USER: PropsUserContext = {
 	state: {
 		github: "",
-		gitData: {},
+		gitData: {} as GitUserData,
 	},
 	setState: () => {},
 };
@@ -27,6 +28,7 @@ const UserContext = createContext<PropsUserContext>(DEFAULT_USER);
 
 const UserContextProvider: React.FC = ({ children }) => {
 	const [state, setState] = useState<UserType>(DEFAULT_USER.state);
+
 	return (
 		<UserContext.Provider value={{ state, setState }}>
 			{children}

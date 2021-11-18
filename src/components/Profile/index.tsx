@@ -8,24 +8,24 @@ import {
 } from "react-icons/hi";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { useHistory } from "react-router-dom";
+import { GitUserData } from "../../api/models/gitModel";
 import { Divider } from "../../pages/LandingPage/styles";
 import {
-	AddictionalInfo,
-	Avatar,
-	Bio,
-	Logout,
-	Name,
+	ProfileAddictionalInfo,
+	ProfileAvatar,
+	ProfileBio,
 	ProfileInfo,
-	Row,
-	Username,
+	ProfileLogout,
+	ProfileName,
+	ProfileRow,
+	ProfileUsername,
 } from "./styles";
 
 interface ProfileProps {
-	gitData: any;
+	gitData: GitUserData;
 }
 
-const Profile = (props: ProfileProps) => {
-	const { gitData } = props;
+const Profile = ({ gitData }: ProfileProps) => {
 	const history = useHistory();
 
 	const handleLogout = () => {
@@ -35,13 +35,13 @@ const Profile = (props: ProfileProps) => {
 
 	return (
 		<ProfileInfo>
-			<Avatar src={gitData.avatar_url} alt={gitData.login} />
-			<Username>@{gitData.login}</Username>
-			<Name>{gitData.name}</Name>
-			<Bio>{gitData.bio}</Bio>
+			<ProfileAvatar src={gitData.avatar_url} alt={gitData.login} />
+			<ProfileUsername>@{gitData.login}</ProfileUsername>
+			<ProfileName>{gitData.name}</ProfileName>
+			<ProfileBio>{gitData.bio}</ProfileBio>
 			<Divider />
-			<AddictionalInfo>
-				<Row>
+			<ProfileAddictionalInfo>
+				<ProfileRow>
 					<span>
 						<HiOutlineOfficeBuilding style={{ marginRight: 4 }} size={15} />
 						{gitData.company || "No Company"}
@@ -50,8 +50,8 @@ const Profile = (props: ProfileProps) => {
 						<HiOutlineUserCircle style={{ marginRight: 4 }} size={15} />
 						{gitData.followers || "0"}
 					</span>
-				</Row>
-				<Row>
+				</ProfileRow>
+				<ProfileRow>
 					<span>
 						<HiOutlineMail style={{ marginRight: 4 }} size={15} />
 						{gitData.email || "No Email"}
@@ -60,8 +60,8 @@ const Profile = (props: ProfileProps) => {
 						<RiGitRepositoryLine style={{ marginRight: 4 }} size={15} />
 						{gitData.public_repos || "No Repos"}
 					</span>
-				</Row>
-				<Row>
+				</ProfileRow>
+				<ProfileRow>
 					<span>
 						<HiOutlineLocationMarker style={{ marginRight: 4 }} size={15} />
 						{gitData.location || "No Location"}
@@ -70,12 +70,12 @@ const Profile = (props: ProfileProps) => {
 						<BsTwitter style={{ marginRight: 4 }} size={15} />
 						{gitData.twitter_username || "No Twitter"}
 					</span>
-				</Row>
-			</AddictionalInfo>
+				</ProfileRow>
+			</ProfileAddictionalInfo>
 			<Divider />
-			<Logout onClick={handleLogout}>
+			<ProfileLogout onClick={handleLogout}>
 				<FiPower size={22} />
-			</Logout>
+			</ProfileLogout>
 		</ProfileInfo>
 	);
 };

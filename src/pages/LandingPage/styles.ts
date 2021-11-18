@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const LandingContainer = styled.div`
 	height: 100vh;
 	width: 100vw;
 
@@ -12,7 +12,7 @@ export const Container = styled.div`
 	align-items: flex-start;
 `;
 
-export const Content = styled.div`
+export const LandingContent = styled.div`
 	max-width: 1080px;
 	height: 100vh;
 	max-height: 100vh;
@@ -23,7 +23,7 @@ export const Content = styled.div`
 	position: relative;
 `;
 
-export const Feed = styled.div`
+export const LandingFeed = styled.div`
 	width: 38vw;
 	height: 100vh;
 	min-width: 620px;
@@ -43,7 +43,7 @@ export const Divider = styled.hr`
 	margin: 8px 0;
 `;
 
-export const TitleBox = styled.div`
+export const LandingTitleBox = styled.div`
 	padding: 12px;
 	border-bottom: 1px solid #585757;
 	position: sticky;
@@ -51,7 +51,7 @@ export const TitleBox = styled.div`
 	background: #404044;
 `;
 
-export const Title = styled.span`
+export const LandingTitle = styled.span`
 	font-size: 1.4rem;
 	margin-left: 12px;
 	font-weight: 700;

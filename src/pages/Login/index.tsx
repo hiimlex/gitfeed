@@ -6,20 +6,21 @@ import { GitUserData } from "../../api/models/gitModel";
 import { getAllUsers, getGitUser, postNewUser } from "../../api/services/git";
 import UserContext from "../../context/user-context";
 import {
-	Box,
-	BoxSubtitle,
-	BoxTitle,
-	Button,
-	Container,
-	Input,
-	InputError,
-	InputGroup,
+	LoginBox,
+	LoginBoxSubtitle,
+	LoginBoxTitle,
+	LoginButton,
+	LoginContainer,
+	LoginInput,
+	LoginInputError,
+	LoginInputGroup,
 } from "./styles";
 
 const Login = () => {
 	const [validUser, setValidUser] = useState(false);
 	const [user, setUser] = useState<GitUserData>({} as GitUserData);
 	const [errorMsg, setErrorMsg] = useState("");
+
 	const { setState } = useContext(UserContext);
 
 	const history = useHistory();
@@ -72,24 +73,24 @@ const Login = () => {
 	const debounceChangeHandler = useCallback(debounce(handleOnChange, 500), []);
 
 	return (
-		<Container>
-			<Box>
+		<LoginContainer>
+			<LoginBox>
 				<BsGithub size={64} style={{ margin: "12px 0" }} />
-				<BoxTitle>Login</BoxTitle>
-				<BoxSubtitle>Type your github user</BoxSubtitle>
-				<InputGroup>
+				<LoginBoxTitle>Login</LoginBoxTitle>
+				<LoginBoxSubtitle>Type your github user</LoginBoxSubtitle>
+				<LoginInputGroup>
 					<label htmlFor="user">Github User</label>
-					<Input
+					<LoginInput
 						type="text"
 						id="user"
 						name="user"
 						onChange={debounceChangeHandler}
 					/>
-					{!validUser && <InputError>{errorMsg}</InputError>}
-				</InputGroup>
-				{validUser && <Button onClick={handleOnClick}>Login</Button>}
-			</Box>
-		</Container>
+					{!validUser && <LoginInputError>{errorMsg}</LoginInputError>}
+				</LoginInputGroup>
+				{validUser && <LoginButton onClick={handleOnClick}>Login</LoginButton>}
+			</LoginBox>
+		</LoginContainer>
 	);
 };
 

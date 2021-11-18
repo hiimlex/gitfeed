@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
+export const PostContent = styled.div`
 	width: 100%;
 	height: auto;
 
@@ -18,13 +18,13 @@ export const PostAvatar = styled.img`
 	margin-top: 0;
 `;
 
-export const Row = styled.div`
+export const PostRow = styled.div`
 	display: flex;
 	flex-direction: row;
 	padding: 12px;
 `;
 
-export const Actions = styled.div`
+export const PostActions = styled.div`
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
@@ -44,7 +44,16 @@ export const PostDescription = styled.span`
 	color: #fff;
 `;
 
-export const Item = styled.div`
+
+
+export const PostColumn = styled.div`
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+`;
+
+
+export const PostItem = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -61,14 +70,14 @@ export const Item = styled.div`
 	}
 `;
 
-export const Dropdown = styled.div`
+export const PostDropdown = styled.div`
 	position: relative;
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
 `;
 
-export const DropdownContent = styled.div`
+export const PostDropdownContent = styled.div`
 	position: absolute;
 	right: 0;
 	background-color: #424244;
@@ -80,7 +89,7 @@ export const DropdownContent = styled.div`
 	border-radius: 4px;
 `;
 
-export const ExcludeItem = styled.div`
+export const PostExcludeItem = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;

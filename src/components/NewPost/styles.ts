@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Post = styled.div`
+export const NewPostContainer = styled.div`
 	width: 100%;
 	padding: 24px;
 
@@ -19,13 +19,13 @@ export const NewPostAvatar = styled.img`
 	margin-top: 0;
 `;
 
-export const Column = styled.div`
+export const NewPostColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 `;
 
-export const TextArea = styled.textarea`
+export const NewPostTextArea = styled.textarea`
 	width: 100%;
 	max-width: 100%;
 	margin-bottom: 8px;
@@ -53,11 +53,11 @@ export const TextArea = styled.textarea`
 	}
 `;
 
-interface ButtonProps {
+interface NewPostButtonProps {
 	disabled?: boolean;
 }
 
-export const Button = styled.button<ButtonProps>`
+export const NewPostButton = styled.button<NewPostButtonProps>`
 	width: 128px;
 	height: auto;
 	padding: 6px 4px;

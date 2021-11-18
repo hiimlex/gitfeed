@@ -1,16 +1,21 @@
 import React, { useRef, useState } from "react";
+import { GitUserData } from "../../api/models/gitModel";
 import { newPost } from "../../api/services/post";
 import { Divider } from "../../pages/LandingPage/styles";
-import { Button, Column, NewPostAvatar, Post, TextArea } from "./styles";
+import {
+	NewPostAvatar,
+	NewPostButton,
+	NewPostColumn,
+	NewPostContainer,
+	NewPostTextArea,
+} from "./styles";
 
 interface NewPostProps {
-	gitData: any;
+	gitData: GitUserData;
 	reloadData: () => void;
 }
 
-const NewPost = (props: NewPostProps) => {
-	const { gitData, reloadData } = props;
-
+const NewPost = ({ gitData, reloadData }: NewPostProps) => {
 	const [hasContent, setHasContent] = useState(true);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -21,13 +26,15 @@ const NewPost = (props: NewPostProps) => {
 			const { value } = textareaRef.current;
 
 			if (value.length > 0) {
+				const { avatar_url, id, login } = gitData;
+
 				await newPost({
-					avatar: gitData.avatar_url,
+					avatar: avatar_url,
 					content: value,
 					createdAt: new Date(),
 					favorites: 0,
-					userId: gitData.id,
-					username: gitData.login,
+					userId: id,
+					username: login,
 				});
 
 				reloadData();
@@ -44,23 +51,23 @@ const NewPost = (props: NewPostProps) => {
 	};
 
 	return (
-		<Post>
+		<NewPostContainer>
 			<NewPostAvatar src={gitData.avatar_url} alt={gitData.login} />
-			<Column>
-				<TextArea
+			<NewPostColumn>
+				<NewPostTextArea
 					ref={textareaRef}
 					contentEditable
 					suppressContentEditableWarning={true}
 					role="textbox"
 					onChange={handleOnChange}
 					defaultValue="What's up?"
-				></TextArea>
+				></NewPostTextArea>
 				<Divider></Divider>
-				<Button onClick={handleSubmit} disabled={!hasContent}>
+				<NewPostButton onClick={handleSubmit} disabled={!hasContent}>
 					Send
-				</Button>
-			</Column>
-		</Post>
+				</NewPostButton>
+			</NewPostColumn>
+		</NewPostContainer>
 	);
 };
 

@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { debounce } from "lodash";
+import React, { useCallback, useContext, useState } from "react";
 import {
 	HiDotsVertical,
 	HiHeart,
@@ -9,18 +10,18 @@ import { IoMdClose } from "react-icons/io";
 import { GetPostData } from "../../api/models/postModel";
 import { deletePost, updatePost } from "../../api/services/post";
 import UserContext from "../../context/user-context";
-import { Column } from "../NewPost/styles";
 import {
-	Actions,
-	Content,
-	Dropdown,
-	DropdownContent,
-	ExcludeItem,
-	Item,
+	PostActions,
 	PostAvatar,
+	PostColumn,
+	PostContent,
 	PostDescription,
+	PostDropdown,
+	PostDropdownContent,
+	PostExcludeItem,
+	PostItem,
+	PostRow,
 	PostUsername,
-	Row,
 } from "./styles";
 
 interface PostProps {
@@ -28,10 +29,9 @@ interface PostProps {
 	reloadData: () => void;
 }
 
-const Post = (props: PostProps) => {
+const Post = ({ postData, reloadData }: PostProps) => {
 	const [visible, setVisible] = useState(false);
 	const [favorited, setFavorited] = useState(false);
-	const { postData, reloadData } = props;
 
 	const { state } = useContext(UserContext);
 
@@ -64,25 +64,39 @@ const Post = (props: PostProps) => {
 		reloadData();
 	};
 
-	const handleClick = () => {
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const debounceFavClick = useCallback(debounce(handleFavoritePost, 300), []);
+
+	const handleClick = (e: any) => {
+		e.preventDefault();
+
 		setFavorited(true);
 
-		handleFavoritePost();
+		debounceFavClick();
 	};
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+
 	return (
-		<Content>
-			<Row>
+		<PostContent>
+			<PostRow>
 				<PostAvatar src={postData.avatar} />
-				<Column>
+				<PostColumn>
 					<PostUsername>{postData.username}</PostUsername>
 					<PostDescription>{postData.content}</PostDescription>
-				</Column>
-				<Actions>
+				</PostColumn>
+				<PostActions>
 					{hasPermissionToDelete && (
 						<>
-							<Item>
-								{!visible && (
+							<PostItem>
+								{visible ? (
+									<IoMdClose
+										size={16}
+										onClick={() => {
+											setVisible(!visible);
+										}}
+									/>
+								) : (
 									<HiDotsVertical
 										size={16}
 										onClick={() => {
@@ -90,48 +104,39 @@ const Post = (props: PostProps) => {
 										}}
 									/>
 								)}
-								{visible && (
-									<IoMdClose
-										size={16}
-										onClick={() => {
-											setVisible(!visible);
-										}}
-									/>
-								)}
-							</Item>
+							</PostItem>
 							{visible && (
-								<Dropdown>
-									<DropdownContent>
-										<ExcludeItem onClick={handleDeletePost}>
+								<PostDropdown>
+									<PostDropdownContent>
+										<PostExcludeItem onClick={handleDeletePost}>
 											<HiTrash size={16} /> Delete
-										</ExcludeItem>
-									</DropdownContent>
-								</Dropdown>
+										</PostExcludeItem>
+									</PostDropdownContent>
+								</PostDropdown>
 							)}
 						</>
 					)}
-				</Actions>
-			</Row>
-			<Actions style={{ padding: "8px" }}>
-				<Item>
-					{!favorited && (
+				</PostActions>
+			</PostRow>
+			<PostActions style={{ padding: "8px" }}>
+				<PostItem>
+					{favorited ? (
+						<HiHeart
+							size={16}
+							style={{ marginRight: 8 }}
+							onClick={handleClick}
+						/>
+					) : (
 						<HiOutlineHeart
 							size={16}
 							style={{ marginRight: 8 }}
 							onClick={handleClick}
 						/>
 					)}
-					{favorited && (
-						<HiHeart
-							size={16}
-							style={{ marginRight: 8 }}
-							onClick={handleClick}
-						/>
-					)}
 					{postData.favorites}
-				</Item>
-			</Actions>
-		</Content>
+				</PostItem>
+			</PostActions>
+		</PostContent>
 	);
 };
 

@@ -17,7 +17,7 @@ export const ProfileInfo = styled.div`
 	height: 100vh;
 `;
 
-export const Avatar = styled.img`
+export const ProfileAvatar = styled.img`
 	width: 128px;
 	height: 128px;
 	border-radius: 50%;
@@ -25,27 +25,27 @@ export const Avatar = styled.img`
 	margin: 8px 0;
 `;
 
-export const Username = styled.span`
+export const ProfileUsername = styled.span`
 	font-size: 1.2rem;
 	font-weight: 700;
 	margin: 4px 0;
 `;
 
-export const Bio = styled.span`
+export const ProfileBio = styled.span`
 	font-size: 0.8rem;
 	font-weight: 400;
 	margin: 4px 0;
 	text-align: justify;
 `;
 
-export const Name = styled.span`
+export const ProfileName = styled.span`
 	font-size: 1.1rem;
 	font-weight: 500;
 	margin: 4px 0;
 	text-align: justify;
 `;
 
-export const AddictionalInfo = styled.div`
+export const ProfileAddictionalInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: 4px 0;
@@ -59,14 +59,14 @@ export const AddictionalInfo = styled.div`
 	}
 `;
 
-export const Row = styled.div`
+export const ProfileRow = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin: 4px 0;
 	justify-content: space-between;
 `;
 
-export const Logout = styled.div`
+export const ProfileLogout = styled.div`
 	width: 42px;
 	height: 42px;
 	margin: 12px 0;

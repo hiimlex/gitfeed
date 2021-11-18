@@ -5,7 +5,7 @@ export interface GetPostData {
 	avatar: string;
 	favorites: number;
 	id: string;
-	userId: string;
+	userId: number;
 }
 
 export type NewPostData = Omit<GetPostData, "id">;

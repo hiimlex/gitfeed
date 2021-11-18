@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const PostListContainer = styled.div`
 	width: 100%;
 	height: auto;
 
@@ -10,7 +10,7 @@ export const Container = styled.div`
 	justify-content: flex-start;
 `;
 
-export const NotFound = styled.div`
+export const PostListNotFound = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -20,7 +20,7 @@ export const NotFound = styled.div`
 	padding: 12px;
 `;
 
-export const NotFoundText = styled.span`
+export const PostListNotFoundText = styled.span`
 	font-size: 1rem;
 	font-weight: 500;
 `;

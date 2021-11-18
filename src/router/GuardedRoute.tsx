@@ -16,7 +16,7 @@ const GuardedRoute: React.FC<RouteProps> = ({ children, path }) => {
 	return (
 		<Route path={path}>
 			{!isEmptyObject(user) ||
-			state.github !== "" ||
+			(state.github !== "" && state.github !== undefined) ||
 			!isEmptyObject(state.gitData) ? (
 				children
 			) : (

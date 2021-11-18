@@ -21,7 +21,7 @@ const NewPost = (props: NewPostProps) => {
 			const { value } = textareaRef.current;
 
 			if (value.length > 0) {
-				const { data } = await newPost({
+				await newPost({
 					avatar: gitData.avatar_url,
 					content: value,
 					createdAt: new Date(),
@@ -29,8 +29,6 @@ const NewPost = (props: NewPostProps) => {
 					userId: gitData.id,
 					username: gitData.login,
 				});
-
-				console.log(data);
 
 				reloadData();
 

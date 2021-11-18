@@ -17,6 +17,9 @@ const LandingPage = () => {
 	const getPostData = async () => {
 		try {
 			const { data } = await getAllPosts();
+
+			data.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+
 			setPosts(data);
 		} catch (error) {
 			console.log(error);

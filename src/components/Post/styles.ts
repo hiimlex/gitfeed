@@ -77,6 +77,8 @@ export const PostDropdown = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
+
+	margin-bottom: auto;
 `;
 
 export const PostDropdownContent = styled.div`

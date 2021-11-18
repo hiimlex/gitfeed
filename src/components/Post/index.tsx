@@ -64,6 +64,10 @@ const Post = ({ postData, reloadData }: PostProps) => {
 		reloadData();
 	};
 
+	const handleVisibleDropdown = () => {
+		setVisible((curreValue) => !curreValue);
+	};
+
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const debounceFavClick = useCallback(debounce(handleFavoritePost, 300), []);
 
@@ -96,19 +100,9 @@ const Post = ({ postData, reloadData }: PostProps) => {
 						<>
 							<PostItem>
 								{visible ? (
-									<IoMdClose
-										size={16}
-										onClick={() => {
-											setVisible(!visible);
-										}}
-									/>
+									<IoMdClose size={16} onClick={handleVisibleDropdown} />
 								) : (
-									<HiDotsVertical
-										size={16}
-										onClick={() => {
-											setVisible(!visible);
-										}}
-									/>
+									<HiDotsVertical size={16} onClick={handleVisibleDropdown} />
 								)}
 							</PostItem>
 							{visible && (

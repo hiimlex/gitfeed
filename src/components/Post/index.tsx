@@ -75,6 +75,10 @@ const Post = ({ postData, reloadData }: PostProps) => {
 		debounceFavClick();
 	};
 
+	const openGithubProfile = () => {
+		window.open(`https://github.com/${postData.username}`, "_blank");
+	};
+
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 
 	return (
@@ -82,7 +86,9 @@ const Post = ({ postData, reloadData }: PostProps) => {
 			<PostRow>
 				<PostAvatar src={postData.avatar} />
 				<PostColumn>
-					<PostUsername>{postData.username}</PostUsername>
+					<PostUsername onClick={openGithubProfile}>
+						@{postData.username}
+					</PostUsername>
 					<PostDescription>{postData.content}</PostDescription>
 				</PostColumn>
 				<PostActions>

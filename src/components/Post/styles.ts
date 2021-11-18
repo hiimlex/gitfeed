@@ -37,6 +37,11 @@ export const PostUsername = styled.span`
 	font-size: 0.9rem;
 	font-weight: bold;
 	color: #fff;
+
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
 `;
 
 export const PostDescription = styled.span`
@@ -44,14 +49,11 @@ export const PostDescription = styled.span`
 	color: #fff;
 `;
 
-
-
 export const PostColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 `;
-
 
 export const PostItem = styled.div`
 	display: flex;

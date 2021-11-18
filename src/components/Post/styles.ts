@@ -54,6 +54,8 @@ export const Item = styled.div`
 
 	cursor: pointer;
 
+	transition: all 0.2s ease-in-out;
+
 	* {
 		margin-left: 8px;
 	}
@@ -61,5 +63,38 @@ export const Item = styled.div`
 
 export const Dropdown = styled.div`
 	position: relative;
-	display: inline-block;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+`;
+
+export const DropdownContent = styled.div`
+	position: absolute;
+	right: 0;
+	background-color: #424244;
+	min-width: 160px;
+	height: auto;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	border-radius: 4px;
+`;
+
+export const ExcludeItem = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	padding: 6px;
+
+	color: #fff;
+	cursor: pointer;
+	font-size: 0.8rem;
+
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		background-color: #585757;
+	}
 `;

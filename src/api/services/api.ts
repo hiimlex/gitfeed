@@ -66,4 +66,40 @@ async function newPost(post: NewPostData): Promise<AxiosResponse<any>> {
 	}
 }
 
-export { getGitUser, postNewUser, getAllUsers, getAllPosts, newPost };
+async function deletePost(id: string): Promise<AxiosResponse<any>> {
+	try {
+		const response = await axios.delete(
+			`https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/posts/${id}`
+		);
+
+		return response;
+	} catch (err) {
+		throw new Error("Oh Oh Something is wrong");
+	}
+}
+
+async function updatePost(
+	id: string,
+	post: NewPostData
+): Promise<AxiosResponse<any>> {
+	try {
+		const response = await axios.put(
+			`https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/posts/${id}`,
+			post
+		);
+
+		return response;
+	} catch (err) {
+		throw new Error("Oh Oh Something is wrong");
+	}
+}
+
+export {
+	getGitUser,
+	postNewUser,
+	getAllUsers,
+	getAllPosts,
+	newPost,
+	deletePost,
+	updatePost,
+};

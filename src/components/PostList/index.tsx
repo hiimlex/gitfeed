@@ -5,24 +5,17 @@ import { Container, NotFound, NotFoundText } from "./styles";
 
 interface PostListProps {
 	posts: GetPostData[];
+	reloadData: () => void;
 }
 
 const PostList = (props: PostListProps) => {
-	const { posts } = props;
+	const { posts, reloadData } = props;
 
 	return (
 		<Container>
 			{posts.length ? (
 				posts.map((el) => (
-					<Post
-						key={randomId()}
-						postData={{
-							username: el.username,
-							avatar: el.avatar,
-							content: el.content,
-							favs: el.favorites,
-						}}
-					/>
+					<Post key={randomId()} reloadData={reloadData} postData={el} />
 				))
 			) : (
 				<NotFound>

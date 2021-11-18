@@ -42,7 +42,7 @@ const LandingPage = () => {
 						</Title>
 					</TitleBox>
 					<NewPost gitData={gitData} reloadData={reloadPosts} />
-					<PostList posts={posts} />
+					<PostList posts={posts} reloadData={reloadPosts} />
 				</Feed>
 			</Content>
 		</Container>

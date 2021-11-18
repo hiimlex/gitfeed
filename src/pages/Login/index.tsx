@@ -1,5 +1,6 @@
 import { debounce } from "lodash";
 import { useCallback, useContext, useState } from "react";
+import { BsGithub } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
 import { GitUserData } from "../../api/models/gitModel";
 import { getAllUsers, getGitUser, postNewUser } from "../../api/services/api";
@@ -73,6 +74,7 @@ const Login = () => {
 	return (
 		<Container>
 			<Box>
+				<BsGithub size={64} style={{ margin: "12px 0" }} />
 				<BoxTitle>Login</BoxTitle>
 				<BoxSubtitle>Type your github user</BoxSubtitle>
 				<InputGroup>

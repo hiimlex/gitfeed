@@ -47,3 +47,5 @@ export interface GetPostData {
 	id: string;
 	userId: string;
 }
+
+export type NewPostData = Omit<GetPostData, "id">;

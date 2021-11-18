@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
 import { GetPostData } from "../../api/models/gitModel";
-import { getAllPosts } from "../../api/services/api";
 import { randomId } from "../../utils/random-id";
 import Post from "../Post";
 import { Container, NotFound, NotFoundText } from "./styles";
 
-export interface PostData {
-	username: string;
-	avatar: string;
-	content: string;
-	favs: number;
+interface PostListProps {
+	posts: GetPostData[];
 }
 
-const PostList = () => {
-	const [posts, setPosts] = useState<GetPostData[]>([]);
-
-	const getPostData = async () => {
-		const { data } = await getAllPosts();
-		setPosts(data);
-	};
-
-	useEffect(() => {
-		getPostData();
-	}, []);
+const PostList = (props: PostListProps) => {
+	const { posts } = props;
 
 	return (
 		<Container>

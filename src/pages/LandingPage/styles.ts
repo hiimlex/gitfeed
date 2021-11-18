@@ -30,7 +30,6 @@ export const Feed = styled.div`
 	max-width: 838px;
 	overflow: auto;
 
-	background: #434346;
 	border: 1px solid #585757;
 	border-left: none;
 	position: relative;
@@ -49,7 +48,7 @@ export const TitleBox = styled.div`
 	border-bottom: 1px solid #585757;
 	position: sticky;
 	top: 0;
-	background: #434346;
+	background: #404044;
 `;
 
 export const Title = styled.span`

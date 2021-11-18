@@ -26,10 +26,10 @@ export const Row = styled.div`
 
 export const Actions = styled.div`
 	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+	align-items: flex-end;
+	justify-content: space-between;
+	flex-direction: column;
 
-	border-top: 1px solid #585757;
 	margin: 4px 0;
 `;
 
@@ -54,11 +54,12 @@ export const Item = styled.div`
 
 	cursor: pointer;
 
-	margin: 0 48px;
-	padding-top: 12px;
-	margin-right: 0;
-
 	* {
-		margin: 0 4px;
+		margin-left: 8px;
 	}
+`;
+
+export const Dropdown = styled.div`
+	position: relative;
+	display: inline-block;
 `;

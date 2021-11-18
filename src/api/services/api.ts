@@ -1,5 +1,10 @@
 import axios, { AxiosResponse } from "axios";
-import { GetPostData, GitUserApi, GitUserData } from "../models/gitModel";
+import {
+	GetPostData,
+	GitUserApi,
+	GitUserData,
+	NewPostData,
+} from "../models/gitModel";
 
 async function getGitUser(value: string): Promise<AxiosResponse<GitUserData>> {
 	try {
@@ -48,7 +53,7 @@ async function getAllPosts(): Promise<AxiosResponse<GetPostData[]>> {
 	}
 }
 
-async function newPost(post: GetPostData): Promise<AxiosResponse<any>> {
+async function newPost(post: NewPostData): Promise<AxiosResponse<any>> {
 	try {
 		const response = await axios.post(
 			`https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/posts`,

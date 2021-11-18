@@ -1,9 +1,14 @@
-import { HiOutlineHeart, HiTrash } from "react-icons/hi";
+import { useState } from "react";
+import {
+	HiOutlineHeart,
+	HiDotsVertical,
+	HiDotsHorizontal,
+} from "react-icons/hi";
 import { Column } from "../NewPost/styles";
-import { PostData } from "../PostList";
 import {
 	Actions,
 	Content,
+	Dropdown,
 	Item,
 	PostAvatar,
 	PostDescription,
@@ -14,8 +19,15 @@ import {
 interface PostProps {
 	postData: PostData;
 }
+interface PostData {
+	username: string;
+	avatar: string;
+	content: string;
+	favs: number;
+}
 
 const Post = (props: PostProps) => {
+	const [visible, setVisible] = useState(false);
 	const { postData } = props;
 
 	return (
@@ -25,15 +37,31 @@ const Post = (props: PostProps) => {
 				<Column>
 					<PostUsername>{postData.username}</PostUsername>
 					<PostDescription>{postData.content}</PostDescription>
-					<Actions>
-						<Item>
-							<HiOutlineHeart size={16} /> {postData.favs}
-						</Item>
-						<Item>
-							<HiTrash size={16} />
-						</Item>
-					</Actions>
 				</Column>
+				<Actions>
+					<Item>
+						{!visible && (
+							<HiDotsVertical
+								size={16}
+								onClick={() => {
+									setVisible(!visible);
+								}}
+							/>
+						)}
+						{visible && (
+							<HiDotsHorizontal
+								size={16}
+								onClick={() => {
+									setVisible(!visible);
+								}}
+							/>
+						)}
+						{visible && <Dropdown>dropdown</Dropdown>}
+					</Item>
+					<Item>
+						<HiOutlineHeart size={16} /> {postData.favs}
+					</Item>
+				</Actions>
 			</Row>
 		</Content>
 	);

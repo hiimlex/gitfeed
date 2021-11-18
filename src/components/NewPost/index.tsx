@@ -5,10 +5,11 @@ import { Button, Column, NewPostAvatar, Post, TextArea } from "./styles";
 
 interface NewPostProps {
 	gitData: any;
+	reloadData: () => void;
 }
 
 const NewPost = (props: NewPostProps) => {
-	const { gitData } = props;
+	const { gitData, reloadData } = props;
 
 	const [hasContent, setHasContent] = useState(true);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -18,6 +19,23 @@ const NewPost = (props: NewPostProps) => {
 
 		if (textareaRef.current) {
 			const { value } = textareaRef.current;
+
+			if (value.length > 0) {
+				const { data } = await newPost({
+					avatar: gitData.avatar_url,
+					content: value,
+					createdAt: new Date(),
+					favorites: 0,
+					userId: gitData.id,
+					username: gitData.login,
+				});
+
+				console.log(data);
+
+				reloadData();
+
+				textareaRef.current.value = "What's up?";
+			}
 		}
 	};
 

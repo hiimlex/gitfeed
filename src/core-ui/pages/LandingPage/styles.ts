@@ -13,7 +13,7 @@ export const LandingContainer = styled.div`
 `;
 
 export const LandingContent = styled.div`
-	max-width: 1080px;
+	max-width: 1280px;
 	height: 100vh;
 	max-height: 100vh;
 	overflow: hidden;

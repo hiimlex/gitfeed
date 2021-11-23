@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LandingTitleBox = styled.div`
-	padding: 12px;
+	padding: 22px;
 	border-bottom: 1px solid #585757;
 	position: sticky;
 	top: 0;

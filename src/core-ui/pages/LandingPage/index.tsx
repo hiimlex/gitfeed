@@ -6,6 +6,7 @@ import LandingTitle from "../../../shared/components/LandingTitle";
 import NewPost from "../../../shared/components/NewPost";
 import PostList from "../../../shared/components/PostList";
 import Profile from "../../../shared/components/Profile";
+import SearchSection from "../../../shared/components/SearchSection";
 import { LandingContainer, LandingContent, LandingFeed } from "./styles";
 
 const LandingPage = () => {
@@ -43,6 +44,7 @@ const LandingPage = () => {
 					<NewPost gitData={gitData} reloadData={reloadPosts} />
 					<PostList posts={posts} reloadData={reloadPosts} />
 				</LandingFeed>
+				<SearchSection />
 			</LandingContent>
 		</LandingContainer>
 	);

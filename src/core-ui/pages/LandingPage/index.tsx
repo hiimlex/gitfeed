@@ -1,18 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BsGithub } from "react-icons/bs";
+import UserContext from "../../../api/context/user-context";
 import { GetPostData } from "../../../api/models/postModel";
 import { getAllPosts } from "../../../api/services/post";
+import LandingTitle from "../../../shared/components/LandingTitle";
 import NewPost from "../../../shared/components/NewPost";
 import PostList from "../../../shared/components/PostList";
 import Profile from "../../../shared/components/Profile";
-import UserContext from "../../../api/context/user-context";
-import {
-	LandingContainer,
-	LandingContent,
-	LandingFeed,
-	LandingTitle,
-	LandingTitleBox,
-} from "./styles";
+import { LandingContainer, LandingContent, LandingFeed } from "./styles";
 
 const LandingPage = () => {
 	const [posts, setPosts] = useState<GetPostData[]>([]);
@@ -45,11 +39,7 @@ const LandingPage = () => {
 			<LandingContent>
 				<Profile gitData={gitData} />
 				<LandingFeed>
-					<LandingTitleBox>
-						<LandingTitle>
-							<BsGithub size={28} /> Feed
-						</LandingTitle>
-					</LandingTitleBox>
+					<LandingTitle title="Feed" />
 					<NewPost gitData={gitData} reloadData={reloadPosts} />
 					<PostList posts={posts} reloadData={reloadPosts} />
 				</LandingFeed>

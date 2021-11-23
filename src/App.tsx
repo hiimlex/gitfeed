@@ -1,15 +1,13 @@
 import React from "react";
-import GlobalContext from "./context/global-context";
+import GlobalContext from "./api/context/global-context";
 import Routes from "./router";
-import { GlobalStyle } from "./styles/global";
+import { GlobalStyle } from "./core-ui/styles/global";
 
-function App() {
-	return (
-		<GlobalContext>
-			<GlobalStyle />
-			<Routes />
-		</GlobalContext>
-	);
-}
+const App = () => (
+	<GlobalContext>
+		<GlobalStyle />
+		<Routes />
+	</GlobalContext>
+);
 
 export default App;

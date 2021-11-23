@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { GitUserData } from "../../api/models/gitModel";
-import { newPost } from "../../api/services/post";
-import { Divider } from "../../pages/LandingPage/styles";
+import { GitUserData } from "../../../api/models/gitModel";
+import { newPost } from "../../../api/services/post";
+import { Divider } from "../../../core-ui/pages/LandingPage/styles";
 import {
 	NewPostAvatar,
 	NewPostButton,

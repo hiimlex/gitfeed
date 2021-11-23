@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsGithub } from "react-icons/bs";
-import { GetPostData } from "../../api/models/postModel";
-import { getAllPosts } from "../../api/services/post";
-import NewPost from "../../components/NewPost";
-import PostList from "../../components/PostList";
-import Profile from "../../components/Profile";
-import UserContext from "../../context/user-context";
+import { GetPostData } from "../../../api/models/postModel";
+import { getAllPosts } from "../../../api/services/post";
+import NewPost from "../../../shared/components/NewPost";
+import PostList from "../../../shared/components/PostList";
+import Profile from "../../../shared/components/Profile";
+import UserContext from "../../../api/context/user-context";
 import {
 	LandingContainer,
 	LandingContent,

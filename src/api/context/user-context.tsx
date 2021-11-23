@@ -4,7 +4,7 @@ import React, {
 	SetStateAction,
 	useState,
 } from "react";
-import { GitUserData } from "../api/models/gitModel";
+import { GitUserData } from "../models/gitModel";
 
 interface UserType {
 	github: string;

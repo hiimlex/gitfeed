@@ -8,8 +8,8 @@ import {
 } from "react-icons/hi";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { useHistory } from "react-router-dom";
-import { GitUserData } from "../../api/models/gitModel";
-import { Divider } from "../../pages/LandingPage/styles";
+import { GitUserData } from "../../../api/models/gitModel";
+import { Divider } from "../../../core-ui/pages/LandingPage/styles";
 import {
 	ProfileAddictionalInfo,
 	ProfileAvatar,

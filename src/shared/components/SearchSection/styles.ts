@@ -5,12 +5,10 @@ export const SearchSectionContainer = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-start;
-	padding: 8px 18px;
 
-	border-right: 1px solid #585757;
+	padding: 8px 18px;
 	width: auto;
 	min-width: 232px;
-	height: 100vh;
 `;
 
 export const SearchSectionContent = styled.section`
@@ -40,9 +38,6 @@ export const SearchSectionInputGroup = styled.div`
 	width: 100%;
 
 	margin-bottom: 8px;
-
-	width: fit-content;
-	height: fit-content;
 `;
 
 export const SearchSectionInput = styled.input`
@@ -72,4 +67,49 @@ export const SearchSectionInputIcon = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+`;
+
+export const SearchSectionListBox = styled.div`
+	width: 100%;
+	padding: 12px;
+	border-radius: 8px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+
+	border: 1px solid #585757;
+
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		background: #585757;
+	}
+`;
+
+export const SearchSectionListAvatar = styled.img`
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+`;
+
+export const SearchSectionListInfo = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	margin-left: 8px;
+`;
+
+export const SearchSectionListInfoUsername = styled.span`
+	font-size: 0.6rem;
+	font-weight: 600;
+`;
+
+export const SearchSectionListInfoName = styled.span`
+	font-size: 0.7rem;
+	font-weight: 400;
 `;

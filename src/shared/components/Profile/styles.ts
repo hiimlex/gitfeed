@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProfileInfo = styled.div`
 	flex: 1;
-	max-width: 320px;
+	max-width: 280px;
 	padding: 0 32px;
 
 	display: flex;
@@ -11,10 +11,7 @@ export const ProfileInfo = styled.div`
 	align-items: center;
 	align-self: center;
 
-	border: 1px solid #585757;
-
 	position: sticky;
-	height: 100vh;
 `;
 
 export const ProfileAvatar = styled.img`

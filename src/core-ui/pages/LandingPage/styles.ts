@@ -31,7 +31,6 @@ export const LandingFeed = styled.div`
 	overflow: auto;
 
 	border: 1px solid #585757;
-	border-left: none;
 	position: relative;
 `;
 
@@ -42,4 +41,3 @@ export const Divider = styled.hr`
 	background: #ffffff12;
 	margin: 8px 0;
 `;
-

@@ -16,7 +16,7 @@ import {
 	LoginInputGroup,
 } from "./styles";
 
-const Login = () => {
+const LoginPage = () => {
 	const [validUser, setValidUser] = useState(false);
 	const [user, setUser] = useState<GitUserData>({} as GitUserData);
 	const [errorMsg, setErrorMsg] = useState("");
@@ -94,4 +94,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default LoginPage;

@@ -1,6 +1,7 @@
 import { debounce } from "lodash";
 import { useCallback, useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { useHistory } from "react-router";
 import { GitUserData } from "../../../api/models/gitModel";
 import { getGitUser } from "../../../api/services/git";
 import {
@@ -20,6 +21,8 @@ import {
 const SearchSection = () => {
 	const [hasUser, setHasUser] = useState(false);
 	const [user, setUser] = useState<GitUserData>({} as GitUserData);
+
+	const history = useHistory();
 
 	const handleOnChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value: inputValue } = e.target;
@@ -46,6 +49,10 @@ const SearchSection = () => {
 		return `${firstName} ${lastName}`;
 	};
 
+	const navigateToUser = (username: string) => {
+		history.push(`/${username}`);
+	};
+
 	return (
 		<SearchSectionContainer>
 			<SearchSectionContent>
@@ -57,7 +64,7 @@ const SearchSection = () => {
 					</SearchSectionInputIcon>
 				</SearchSectionInputGroup>
 				{hasUser && (
-					<SearchSectionListBox>
+					<SearchSectionListBox onClick={() => navigateToUser(user.login)}>
 						<SearchSectionListAvatar src={user.avatar_url} alt={user.login} />
 						<SearchSectionListInfo>
 							<SearchSectionListInfoUsername>

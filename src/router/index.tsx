@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "../core-ui/pages/LandingPage";
-import Login from "../core-ui/pages/Login";
+import LoginPage from "../core-ui/pages/LoginPage";
+import ProfilePage from "../core-ui/pages/ProfilePage";
 import GuardedRoute from "./GuardedRoute";
 
 const Routes = () => {
@@ -9,10 +10,13 @@ const Routes = () => {
 		<Router>
 			<Switch>
 				<Route path="/login">
-					<Login></Login>
+					<LoginPage></LoginPage>
 				</Route>
 				<GuardedRoute exact path="/">
 					<LandingPage></LandingPage>
+				</GuardedRoute>
+				<GuardedRoute path="/:username">
+					<ProfilePage></ProfilePage>
 				</GuardedRoute>
 			</Switch>
 		</Router>

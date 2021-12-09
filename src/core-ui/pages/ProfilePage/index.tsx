@@ -1,12 +1,12 @@
+import { GitUserData } from "api/models/gitModel";
+import { getGitUser } from "api/services/git";
 import { useCallback, useEffect, useState } from "react";
-import { useHistory, useLocation, useParams } from "react-router";
-import { GitUserData } from "../../../api/models/gitModel";
-import { getGitUser } from "../../../api/services/git";
+import { useHistory, useParams } from "react-router";
 import { ProfileContainer, ProfileContent, ProfileFeed } from "./styles";
 
 const ProfilePage = () => {
 	let { username } = useParams<{ username: string }>();
-	const [user, setUser] = useState<GitUserData>({} as GitUserData);
+	const [, setUser] = useState<GitUserData>({} as GitUserData);
 
 	const history = useHistory();
 

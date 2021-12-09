@@ -1,6 +1,6 @@
-import { GetPostData } from "../../../api/models/postModel";
-import { randomId } from "../../utils/random-id";
-import Post from "../Post";
+import { GetPostData } from "api/models/postModel";
+import Post from "shared/components/Post";
+import { randomId } from "shared/utils/random-id";
 import {
 	PostListContainer,
 	PostListNotFound,

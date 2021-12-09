@@ -7,9 +7,9 @@ import {
 	HiTrash,
 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
-import { GetPostData } from "../../../api/models/postModel";
-import { deletePost, updatePost } from "../../../api/services/post";
-import UserContext from "../../../api/context/user-context";
+import { GetPostData } from "api/models/postModel";
+import { deletePost, updatePost } from "api/services/post";
+import UserContext from "api/context/user-context";
 import {
 	PostActions,
 	PostAvatar,

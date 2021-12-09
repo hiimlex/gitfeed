@@ -2,8 +2,8 @@ import { debounce } from "lodash";
 import { useCallback, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useHistory } from "react-router";
-import { GitUserData } from "../../../api/models/gitModel";
-import { getGitUser } from "../../../api/services/git";
+import { GitUserData } from "api/models/gitModel";
+import { getGitUser } from "api/services/git";
 import {
 	SeachSectionLabel,
 	SearchSectionContainer,

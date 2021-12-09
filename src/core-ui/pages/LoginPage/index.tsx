@@ -2,9 +2,9 @@ import { debounce } from "lodash";
 import { useCallback, useContext, useState } from "react";
 import { BsGithub } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
-import { GitUserData } from "../../../api/models/gitModel";
-import { getAllUsers, getGitUser, postNewUser } from "../../../api/services/git";
-import UserContext from "../../../api/context/user-context";
+import { GitUserData } from "api/models/gitModel";
+import { getAllUsers, getGitUser, postNewUser } from "api/services/git";
+import UserContext from "api/context/user-context";
 import {
 	LoginBox,
 	LoginBoxSubtitle,

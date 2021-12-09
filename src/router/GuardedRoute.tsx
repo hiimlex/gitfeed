@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Redirect, Route, RouteProps } from "react-router-dom";
-import UserContext from "../api/context/user-context";
-import { isEmptyObject } from "../shared/utils/isEmptyObject";
+import UserContext from "api/context/user-context";
+import { isEmptyObject } from "shared/utils/isEmptyObject";
 
 interface GuardedRouteProps extends RouteProps {}
 

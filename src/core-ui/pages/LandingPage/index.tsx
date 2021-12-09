@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import UserContext from "../../../api/context/user-context";
-import { GetPostData } from "../../../api/models/postModel";
-import { getAllPosts } from "../../../api/services/post";
-import LandingTitle from "../../../shared/components/LandingTitle";
-import NewPost from "../../../shared/components/NewPost";
-import PostList from "../../../shared/components/PostList";
-import Profile from "../../../shared/components/Profile";
-import SearchSection from "../../../shared/components/SearchSection";
+import UserContext from "api/context/user-context";
+import { GetPostData } from "api/models/postModel";
+import { getAllPosts } from "api/services/post";
+import LandingTitle from "shared/components/LandingTitle";
+import NewPost from "shared/components/NewPost";
+import PostList from "shared/components/PostList";
+import Profile from "shared/components/Profile";
+import SearchSection from "shared/components/SearchSection";
 import { LandingContainer, LandingContent, LandingFeed } from "./styles";
 
 const LandingPage = () => {

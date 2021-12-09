@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LandingTitleBox = styled.div`
+export const TitleBoxContent = styled.div`
 	padding: 22px;
 	border-bottom: 1px solid #585757;
 	position: sticky;
@@ -8,7 +8,7 @@ export const LandingTitleBox = styled.div`
 	background: #404044;
 `;
 
-export const LandingTitleText = styled.span`
+export const TitleBoxText = styled.span`
 	font-size: 1.4rem;
 	margin-left: 12px;
 	font-weight: 700;

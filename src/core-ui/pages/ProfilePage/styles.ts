@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ProfileContainer = styled.div`
 	height: 100vh;
 	width: 100vw;
@@ -33,4 +32,12 @@ export const ProfileFeed = styled.div`
 
 	border: 1px solid #585757;
 	position: relative;
+`;
+
+export const Divider = styled.hr`
+	width: 100%;
+	border: 0;
+	height: 1px;
+	background: #ffffff12;
+	margin: 8px 0;
 `;

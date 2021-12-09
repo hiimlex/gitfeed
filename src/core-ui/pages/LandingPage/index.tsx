@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
 import UserContext from "api/context/user-context";
 import { GetPostData } from "api/models/postModel";
 import { getAllPosts } from "api/services/post";
-import LandingTitle from "shared/components/LandingTitle";
+import React, { useContext, useEffect, useState } from "react";
 import NewPost from "shared/components/NewPost";
 import PostList from "shared/components/PostList";
 import Profile from "shared/components/Profile";
 import SearchSection from "shared/components/SearchSection";
+import TitleBox from "shared/components/TitleBox";
 import { LandingContainer, LandingContent, LandingFeed } from "./styles";
 
 const LandingPage = () => {
 	const [posts, setPosts] = useState<GetPostData[]>([]);
 
 	const { state } = useContext(UserContext);
-	const { gitData } = state;
+	const { gitData: user } = state;
 
 	const getPostData = async () => {
 		try {
@@ -38,10 +38,10 @@ const LandingPage = () => {
 	return (
 		<LandingContainer>
 			<LandingContent>
-				<Profile gitData={gitData} />
+				<Profile gitData={user} />
 				<LandingFeed>
-					<LandingTitle title="Feed" />
-					<NewPost gitData={gitData} reloadData={reloadPosts} />
+					<TitleBox title="Feed" />
+					<NewPost gitData={user} reloadData={reloadPosts} />
 					<PostList posts={posts} reloadData={reloadPosts} />
 				</LandingFeed>
 				<SearchSection />

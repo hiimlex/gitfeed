@@ -1,12 +1,19 @@
 import { GitUserData } from "api/models/gitModel";
+import { GetPostData } from "api/models/postModel";
 import { getGitUser } from "api/services/git";
+import { getAllPosts } from "api/services/post";
 import { useCallback, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import PostList from "shared/components/PostList";
+import Profile from "shared/components/Profile";
+import TitleBox from "shared/components/TitleBox";
 import { ProfileContainer, ProfileContent, ProfileFeed } from "./styles";
 
 const ProfilePage = () => {
 	let { username } = useParams<{ username: string }>();
-	const [, setUser] = useState<GitUserData>({} as GitUserData);
+
+	const [user, setUser] = useState<GitUserData>({} as GitUserData);
+	const [posts, setPosts] = useState<GetPostData[]>([]);
 
 	const history = useHistory();
 
@@ -27,6 +34,29 @@ const ProfilePage = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	const getUserPostData = useCallback(async () => {
+		try {
+			let { data } = await getAllPosts();
+
+			data.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+
+			data = data.filter((post) => post.username === username);
+
+			setPosts(data);
+		} catch (error) {
+			console.log(error);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	const reloadPosts = () => {
+		getUserPostData();
+	};
+
+	useEffect(() => {
+		getUserPostData();
+	}, [getUserPostData]);
+
 	useEffect(() => {
 		handleGitData();
 	}, [handleGitData]);
@@ -34,7 +64,11 @@ const ProfilePage = () => {
 	return (
 		<ProfileContainer>
 			<ProfileContent>
-				<ProfileFeed></ProfileFeed>
+				<Profile gitData={user} />
+				<ProfileFeed>
+					<TitleBox title="Profile" />
+					<PostList posts={posts} reloadData={reloadPosts} />
+				</ProfileFeed>
 			</ProfileContent>
 		</ProfileContainer>
 	);

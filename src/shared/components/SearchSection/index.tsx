@@ -42,11 +42,22 @@ const SearchSection = () => {
 	const debounceChangeHandler = useCallback(debounce(handleOnChange, 500), []);
 
 	const getFirstAndLastName = (name: string): string => {
-		const names = name.split(" ");
-		const firstName = names[0];
-		const lastName = names[names.length - 1];
+		let firstName = "";
+		let lastName = "";
+		let names: string[] = [];
 
-		return `${firstName} ${lastName}`;
+		if (name) {
+			names = name.split(" ");
+		}
+
+		if (names.length > 1) {
+			firstName = names[0];
+			lastName = names[names.length - 1];
+
+			return `${firstName} ${lastName}`;
+		} else {
+			return names[0];
+		}
 	};
 
 	const navigateToUser = (username: string) => {

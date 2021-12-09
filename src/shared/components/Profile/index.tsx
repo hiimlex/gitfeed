@@ -1,3 +1,5 @@
+import UserContext from "api/context/user-context";
+import { useContext } from "react";
 import { BsTwitter } from "react-icons/bs";
 import { FiPower } from "react-icons/fi";
 import {
@@ -8,8 +10,8 @@ import {
 } from "react-icons/hi";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { useHistory } from "react-router-dom";
-import { GitUserData } from "../../../api/models/gitModel";
-import { Divider } from "../../../core-ui/pages/LandingPage/styles";
+import { GitUserData } from "api/models/gitModel";
+import { Divider } from "core-ui/pages/LandingPage/styles";
 import {
 	ProfileAddictionalInfo,
 	ProfileAvatar,
@@ -26,6 +28,10 @@ interface ProfileProps {
 }
 
 const Profile = ({ gitData }: ProfileProps) => {
+	const { state } = useContext(UserContext);
+
+	const isAuthenticatedUser = state.github === gitData.login;
+
 	const history = useHistory();
 
 	const handleLogout = () => {
@@ -73,9 +79,11 @@ const Profile = ({ gitData }: ProfileProps) => {
 				</ProfileRow>
 			</ProfileAddictionalInfo>
 			<Divider />
-			<ProfileLogout onClick={handleLogout}>
-				<FiPower size={22} />
-			</ProfileLogout>
+			{isAuthenticatedUser && (
+				<ProfileLogout onClick={handleLogout}>
+					<FiPower size={22} />
+				</ProfileLogout>
+			)}
 		</ProfileInfo>
 	);
 };

@@ -1,6 +1,10 @@
 import axios, { AxiosResponse } from "axios";
 import { GitUserApi, GitUserData } from "../models/gitModel";
 
+interface IIEGitUserApi extends GitUserApi {
+	id: string;
+}
+
 async function getGitUser(value: string): Promise<AxiosResponse<GitUserData>> {
 	try {
 		const response = await axios.get(`https://api.github.com/users/${value}`);
@@ -24,7 +28,7 @@ async function postNewUser(user: GitUserApi): Promise<AxiosResponse<any>> {
 	}
 }
 
-async function getAllUsers(): Promise<AxiosResponse<GitUserApi[]>> {
+async function getAllUsers(): Promise<AxiosResponse<IIEGitUserApi[]>> {
 	try {
 		const response = await axios.get(
 			"https://619545d174c1bd00176c6cb3.mockapi.io/api/v1/user/"

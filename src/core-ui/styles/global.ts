@@ -7,7 +7,6 @@ export const GlobalStyle = createGlobalStyle`
 		box-sizing: border-box;	
 		outline: 0;
 
-		background: #404044;
 		color: #fff;
 
 		::-webkit-scrollbar {

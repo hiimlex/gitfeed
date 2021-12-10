@@ -1,7 +1,7 @@
 import UserContext from "api/context/user-context";
 import { useContext } from "react";
 import { BsTwitter } from "react-icons/bs";
-import { FiPower } from "react-icons/fi";
+import { FiArrowLeft, FiPower } from "react-icons/fi";
 import {
 	HiOutlineLocationMarker,
 	HiOutlineMail,
@@ -16,6 +16,7 @@ import {
 	ProfileAddictionalInfo,
 	ProfileAvatar,
 	ProfileBio,
+	ProfileGoBack,
 	ProfileInfo,
 	ProfileLogout,
 	ProfileName,
@@ -37,6 +38,10 @@ const Profile = ({ gitData }: ProfileProps) => {
 	const handleLogout = () => {
 		localStorage.removeItem("github");
 		history.push("/login");
+	};
+
+	const handleGoBack = () => {
+		history.push("/");
 	};
 
 	return (
@@ -79,10 +84,14 @@ const Profile = ({ gitData }: ProfileProps) => {
 				</ProfileRow>
 			</ProfileAddictionalInfo>
 			<Divider />
-			{isAuthenticatedUser && (
+			{isAuthenticatedUser ? (
 				<ProfileLogout onClick={handleLogout}>
-					<FiPower size={22} />
+					<FiPower size={22} style={{ background: "transparent" }} />
 				</ProfileLogout>
+			) : (
+				<ProfileGoBack onClick={handleGoBack}>
+					<FiArrowLeft size={22} style={{ background: "transparent" }} />
+				</ProfileGoBack>
 			)}
 		</ProfileInfo>
 	);

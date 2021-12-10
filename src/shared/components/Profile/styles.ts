@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ProfileInfo = styled.div`
 	flex: 1;
-	max-width: 280px;
+	max-width: 320px;
+	min-width: 320px;
 	padding: 0 32px;
 
 	display: flex;
@@ -84,3 +85,5 @@ export const ProfileLogout = styled.div`
 		color: #fff;
 	}
 `;
+
+export const ProfileGoBack = ProfileLogout;

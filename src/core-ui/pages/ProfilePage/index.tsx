@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import PostList from "shared/components/PostList";
 import Profile from "shared/components/Profile";
+import SearchSection from "shared/components/SearchSection";
 import TitleBox from "shared/components/TitleBox";
 import { ProfileContainer, ProfileContent, ProfileFeed } from "./styles";
 
@@ -32,7 +33,7 @@ const ProfilePage = () => {
 			}, 200);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [username]);
 
 	const getUserPostData = useCallback(async () => {
 		try {
@@ -47,7 +48,7 @@ const ProfilePage = () => {
 			console.log(error);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [username]);
 
 	const reloadPosts = () => {
 		getUserPostData();
@@ -69,6 +70,7 @@ const ProfilePage = () => {
 					<TitleBox title="Profile" />
 					<PostList posts={posts} reloadData={reloadPosts} />
 				</ProfileFeed>
+				<SearchSection />
 			</ProfileContent>
 		</ProfileContainer>
 	);

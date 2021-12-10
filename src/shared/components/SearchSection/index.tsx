@@ -1,5 +1,5 @@
 import { debounce } from "lodash";
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useHistory } from "react-router";
 import { GitUserData } from "api/models/gitModel";
@@ -23,6 +23,8 @@ const SearchSection = () => {
 	const [user, setUser] = useState<GitUserData>({} as GitUserData);
 
 	const history = useHistory();
+
+	const inputRef = useRef(null);
 
 	const handleOnChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value: inputValue } = e.target;
@@ -69,7 +71,7 @@ const SearchSection = () => {
 			<SearchSectionContent>
 				<SeachSectionLabel>Search for a Git user</SeachSectionLabel>
 				<SearchSectionInputGroup>
-					<SearchSectionInput onChange={debounceChangeHandler} />
+					<SearchSectionInput ref={inputRef} onChange={debounceChangeHandler} />
 					<SearchSectionInputIcon>
 						<BsSearch size={14} />
 					</SearchSectionInputIcon>

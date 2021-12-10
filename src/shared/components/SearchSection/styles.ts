@@ -102,14 +102,17 @@ export const SearchSectionListInfo = styled.div`
 	justify-content: flex-start;
 
 	margin-left: 8px;
+	background: transparent;
 `;
 
 export const SearchSectionListInfoUsername = styled.span`
 	font-size: 0.6rem;
 	font-weight: 600;
+	background: transparent;
 `;
 
 export const SearchSectionListInfoName = styled.span`
 	font-size: 0.7rem;
 	font-weight: 400;
+	background: transparent;
 `;
